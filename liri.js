@@ -4,7 +4,7 @@ require("dotenv").config();
 var keys = require('./keys.js');
 var request = require('request');
 var twitter = require('twitter');
-var spotify = require('spotify');
+var spotify = require('node-spotify-api');
 var fs = require('fs');
 var parameters = process.argv.slice(3);
 
@@ -40,8 +40,7 @@ function myTweets(){
 	// getting my timeline statuses
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
 		if (!error) {
-			console.log(tweets);
-			console.log("Your last 20 tweets");
+			console.log("----Recent Tweets----");
 			// looping my latest 20 tweets
 			for (i = 0; i < 20; i++) {
 				console.log(tweets[i].created_at + "You tweeted: " + tweets[i].text);
