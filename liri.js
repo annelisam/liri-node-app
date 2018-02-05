@@ -61,7 +61,7 @@ function myMusic(songName) {
 		id: '095794fcbd38447eb93db73d5f463036',
 		secret: '3527c4ef8c4c41d39d76a3f421e1bc77'
 	});
-	
+
 	var songName = process.argv[3];
 	if(!songName) {
 		songName = "the sign ace of base";
@@ -87,4 +87,8 @@ function myMusic(songName) {
       console.log('Error occurred.');
     }
   });
+};
+
+function doWhat(){
+
 };
