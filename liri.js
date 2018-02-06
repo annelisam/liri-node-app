@@ -91,5 +91,32 @@ function myMusic(songName) {
 
 function doWhat(){
 
-}
+};
 
+function myMovie(){
+	if (process.argv[3] != '' && process.argv[3] != null){
+		movieTitle = process.argv[3].trim();
+	}
+	else {
+		movieTitle = 'Mr.+Nobody';
+	}
+	
+	var movieSearch;
+	var movieUrl = 'http://www.omdbapi.com/?t=' + movieTitle +'&type=movie&apikey=trilogy';
+
+		request(movieUrl, function(error, response, body) {
+			if (!error && response.statusCode === 200) {
+				movieSearch = JSON.parse(body);
+
+				console.log("Title: " + movieSearch.Title);
+				console.log("Year: " + movieSearch.Year);
+				console.log("IMDB Rating: " + movieSearch.imdbRating);
+				console.log("Rotten Tomatoes Rating: " + movieSearch.tomatoRating);
+				console.log("Country: " + movieSearch.Country);
+				console.log("Language: " + movieSearch.Language);
+				console.log("Plot: " + movieSearch.Plot);
+				console.log("Starring: " + movieSearch.Actors);
+			}
+		});
+
+}
